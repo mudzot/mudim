@@ -43,6 +43,6 @@ Có những ô nhập văn bản bạn muốn Mudim bỏ qua, không gõ tiếng
 
 {{{IGNORE_ID = ['en_form'];}}}
 
- = Hướng dẫn cụ thể cho từng ứng dụng web =
+= Hướng dẫn cụ thể cho từng ứng dụng web =
 
 <TODO>
