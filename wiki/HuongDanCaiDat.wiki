@@ -1,0 +1,48 @@
+#summary Hướng dẫn cài đặt và sử dụng Mudim trong trang web
+
+= Hướng dẫn chung =
+
+Để tích hợp Mudim vào trang web của bạn, tất cả những gì bạn cần làm là thêm *một dòng* dưới đây vào *cuối* trang web
+
+{{{<script src="/path/to/mudim.js"></script>}}}
+
+Trong đó /path/to/mudim.js là đường dẫn tuyệt đối hoặc tương đối tới file mudim.js của bạn.
+
+*Ví dụ 1 - đưòng dẫn tương đối*
+
+Giả sử trang web của bạn là http://www.abc.com/index.html và bạn đặt file mudim.js tại địa chỉ http://www.abc.com/scripts/mudim.js thì bạn chỉ cần thêm dòng sau vào *ngay trước* tag *</body>* trong trang đó
+
+{{{<script src="scripts/mudim.js"></script>}}}
+
+*Ví dụ 2 - đường dẫn tuyệt đối*
+Chẳng hạn bạn muốn dùng chùa file script của một site khác, với địa chỉ là http://www.def.com/free/scripts/mudim.js thì bạn cần thêm dòng sau:
+
+{{{<script src="scripts/mudim.js"></script>}}}
+
+= Điều chỉnh Mudim =
+
+Bạn có thể chỉnh sửa dễ dàng các giá trị dưới đây để bảng điều khiển Mudim phù hợp nhất với trang web của bạn. Các giá trị này đều đặt ở đầu file mudim.js.
+
+ === Màu nền bảng điều khiển ===
+
+Màu nền quy định bởi biến PANEL_BACKGROUND với giá trị mặc định {{{PANEL_BACKGROUND='lightYellow'}}} . Bạn có thể đổi thành một giá trị màu có nghĩa trong HTML. Ví dụ : {{{PANEL_BACKGROUND='lightBlue'}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD'}}}
+
+ === Ngôn ngữ hiển thị ===
+
+Ngôn ngữ được lưu tại biến LANG với mặc định là tiếng Anh, sau đây là những giá trị bạn có thể thay đổi (các giá trị VNI, Telex, Viqr không thể thay đổi) :
+
+{{{LANG=['Off','Spelling','New accent rule','On/Off','Show/Hide Panel'];}}}
+
+Bạn có thể đổi thành tiếng Việt nếu muốn, chẳng hạn :
+
+{{{LANG=['Tắt','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Đóng/Mở bảng điều khiển'];}}}
+
+ === Những ô văn bản không muốn gõ tiếng Việt ===
+
+Có những ô nhập văn bản bạn muốn Mudim bỏ qua, không gõ tiếng Việt trong đó, bạn hãy đặt id của những ô đó vào mảng IGNORE_ID. Ví dụ :
+
+{{{IGNORE_ID = ['en_form'];}}}
+
+ = Hướng dẫn cụ thể cho từng ứng dụng web =
+
+<TODO>
