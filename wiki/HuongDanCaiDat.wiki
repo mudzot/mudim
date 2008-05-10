@@ -19,30 +19,10 @@ Chẳng hạn bạn muốn dùng chùa file script của một site khác, với
 
 {{{<script src="scripts/mudim.js"></script>}}}
 
-= Điều chỉnh Mudim =
-
-Bạn có thể chỉnh sửa dễ dàng các giá trị dưới đây để bảng điều khiển Mudim phù hợp nhất với trang web của bạn. Các giá trị này đều đặt ở đầu file mudim.js.
-
- === Màu nền bảng điều khiển ===
-
-Màu nền quy định bởi biến PANEL_BACKGROUND với giá trị mặc định {{{PANEL_BACKGROUND='lightYellow'}}} . Bạn có thể đổi thành một giá trị màu có nghĩa trong HTML. Ví dụ : {{{PANEL_BACKGROUND='lightBlue'}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD'}}}
-
- === Ngôn ngữ hiển thị ===
-
-Ngôn ngữ được lưu tại biến LANG với mặc định là tiếng Anh, sau đây là những giá trị bạn có thể thay đổi (các giá trị VNI, Telex, Viqr không thể thay đổi) :
-
-{{{LANG=['Off','Spelling','New accent rule','On/Off','Show/Hide Panel'];}}}
-
-Bạn có thể đổi thành tiếng Việt nếu muốn, chẳng hạn :
-
-{{{LANG=['Tắt','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Đóng/Mở bảng điều khiển'];}}}
-
- === Những ô văn bản không muốn gõ tiếng Việt ===
-
-Có những ô nhập văn bản bạn muốn Mudim bỏ qua, không gõ tiếng Việt trong đó, bạn hãy đặt id của những ô đó vào mảng IGNORE_ID. Ví dụ :
-
-{{{IGNORE_ID = ['en_form'];}}}
 
 = Hướng dẫn cụ thể cho từng ứng dụng web =
 
 <TODO>
+
+
+_Tips_ : muốn thay đổi màu nền bảng điều khiển bạn hãy tìm kiếm trong file mudim.js cụm *lightYellow* và sửa nó thành một màu hợp lệ trong HTML , ví dụ _lightBlue_ hay _#FFCCCC_
