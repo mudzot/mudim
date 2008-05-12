@@ -8,9 +8,9 @@ Các phiên bản test : Mudim 0.5-r22, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
 ||Kiểu bỏ dấu||mới/cũ||cũ/mới||mới||mới||
 ||3 kiểu gõ VNI, Telex, Viqr||+||+||+||+||
 ||Kiểu gõ tổng hợp cả 3||-||+||-||-||
-||Tự nhận dạng lỗi chính tả||+-||+-||+-||+-||
-||Bỏ dấu ở cuối từ||+||+||+-||+-||
+||Tự nhận dạng lỗi chính tả||+ -||+ -||+ -||+ -||
+||Bỏ dấu ở cuối từ||+||+||+ -||+ -||
 ||Tự chuyển vị trí bỏ dấu||+||+||-||-||
 ||Hỗ trợ [http://tinymce.moxiecode.com/ tinymce] và [http://www.fckeditor.net/ fckeditor]||+||+||+||+||
-||Tự động nhận các ô nhập văn bản||+||+-||+||+||
+||Tự động nhận các ô nhập văn bản||+||+ -||+||+||
 ||Hỗ trợ nhiều loại trình duyệt web||+||+||+||+||
