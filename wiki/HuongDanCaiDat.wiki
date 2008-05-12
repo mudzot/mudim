@@ -2,6 +2,8 @@
 
 = Hướng dẫn chung =
 
+===Cài đặt Mudim===
+
 Để tích hợp Mudim vào trang web của bạn, tất cả những gì bạn cần làm là thêm *một dòng* dưới đây vào *cuối* trang web
 
 {{{<script src="/path/to/mudim.js"></script>}}}
@@ -19,10 +21,25 @@ Chẳng hạn bạn muốn dùng chùa file script của một site khác, với
 
 {{{<script src="scripts/mudim.js"></script>}}}
 
+===Hiệu chỉnh Mudim===
+Nếu bạn cảm thấy giao diện mặc định của Mudim đã phù hợp với trang web của bạn, bạn có thể bỏ qua phần này. Nếu không, bạn hãy mở file mudim.js nhìn những dòng cuối cùng. Có 3 giá trị bạn có thể thay đổi
+
+*Màu nền của bảng điều khiển*
+
+Mặc định màu nên là lightYellow, bạn có thể đổi thành bất cứ màu nào hợp lệ trong HTML, ví dụ như {{{PANEL_BACKGROUND='lightBlue';}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD';}}}
+
+*Ngôn ngữ*
+
+Ngôn ngữ mặc định trên bảng điều khiển là tiếng Việt và bạn có thể thay đổi nếu muốn. Những giá trị VNI, Telex, Viqr không thể thay đổi.
+
+{{{LANG=['Tắt','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];}}}
+
+*Những ô nhập văn bản ngoại lệ*
+
+Nếu trang web của bạn có những ô nhập văn bản bạn không muốn gõ tiếng Việt trong đó, hãy đặt id của các ô đó vào mảng IGNORE_ID:
+
+{{{IGNORE_ID = ['englishform','notViet','camgotiengviet'];}}}
 
 = Hướng dẫn cụ thể cho từng ứng dụng web =
 
 <TODO>
-
-
-_Tips_ : muốn thay đổi màu nền bảng điều khiển bạn hãy tìm kiếm trong file mudim.js cụm *lightYellow* và sửa nó thành một màu hợp lệ trong HTML , ví dụ _lightBlue_ hay _#FFCCCC_
