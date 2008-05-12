@@ -1,6 +1,6 @@
 #summary So sánh các đặc tính của một số bộ gõ tiếng Việt cho trang web hiện nay
 
-Các phiên bản test : Mudim 0.5-!r22, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
+Các phiên bản test : Mudim 0.5-r22, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
 
 || ||Mudim||AVIM||CHIM||BIM||
 ||Kích thước khi sử dụng||17KB||28KB||29KB||35KB||
