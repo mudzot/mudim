@@ -1,6 +1,6 @@
 #summary So sánh các đặc tính của một số bộ gõ tiếng Việt cho trang web hiện nay
 
-Các phiên bản test : Mudim 0.5-r22, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
+Các phiên bản test : Mudim 0.5-22, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
 
 || ||Mudim||AVIM||CHIM||BIM||
 ||Kích thước khi sử dụng||17KB||28KB||29KB||35KB||
@@ -14,3 +14,6 @@ Các phiên bản test : Mudim 0.5-r22, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
 ||Hỗ trợ [http://tinymce.moxiecode.com/ tinymce] và [http://www.fckeditor.net/ fckeditor]||+||+||+||+||
 ||Tự động nhận các ô nhập văn bản||+||+ -||+||+||
 ||Hỗ trợ nhiều loại trình duyệt web||+||+||+||+||
+||||||||||Bản Firefox extension||
+||Tính tương thích với các trang web||Tốt||Vừa phải (không gõ được ở trang Gmail)||Vừa phải (không gõ được ở trang Gmail)||x||
+||Xung đột với bộ gõ trong trang web||Không||Có||Không||x||
