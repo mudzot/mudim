@@ -1,5 +1,5 @@
 #summary Hướng dẫn cài đặt và sử dụng Mudim trong trang web
-#labels Phase-Support
+#labels Phase-Deploy
 
 = Hướng dẫn chung =
 
