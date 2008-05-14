@@ -1,4 +1,5 @@
 #summary Hướng dẫn cài đặt và sử dụng Mudim trong trang web
+#labels Phase-Support
 
 = Hướng dẫn chung =
 
@@ -24,15 +25,15 @@ Chẳng hạn bạn muốn dùng chùa file script của một site khác, với
 ===Hiệu chỉnh Mudim===
 Nếu bạn cảm thấy giao diện mặc định của Mudim đã phù hợp với trang web của bạn, bạn có thể bỏ qua phần này. Nếu không, bạn hãy mở file mudim.js nhìn những dòng cuối cùng. Có 3 giá trị bạn có thể thay đổi
 
-*Màu nền của bảng điều khiển*
+*Màu nền và màu chữ của bảng điều khiển*
 
-Mặc định màu nên là lightYellow, bạn có thể đổi thành bất cứ màu nào hợp lệ trong HTML, ví dụ như {{{PANEL_BACKGROUND='lightBlue';}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD';}}}
+Mặc định màu nên là lightYellow, bạn có thể đổi thành bất cứ màu nào hợp lệ trong HTML, ví dụ như {{{PANEL_BACKGROUND='lightBlue';}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD';}}}. Tương tự với màu chữ {{{COLOR='Black'}}}
 
 *Ngôn ngữ*
 
 Ngôn ngữ mặc định trên bảng điều khiển là tiếng Việt và bạn có thể thay đổi nếu muốn. Những giá trị VNI, Telex, Viqr không thể thay đổi.
 
-{{{LANG=['Tắt','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];}}}
+{{{LANG=['Tắt','VNI','Telex','Viqr','Tự động','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];}}}
 
 *Những ô nhập văn bản ngoại lệ*
 
