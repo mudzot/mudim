@@ -1,0 +1,126 @@
+#Mô tả ngắn gọn các hàm và thuộc tính của Mudim
+
+= Sơ lược =
+
+Tất cả các hàm và thuộc tính trong Mudim đều bắt đầu bằng CHIM. hoặc Mudim. tuy không đúng với bản chất class lắm, giống namespace hơn, cho biết những hàm nào thừa kế từ CHIM.
+
+
+= Chi tiết =
+
+==Các hằng số==
+
+||Tên||Tác dụng||
+|| *COLOR* ||Quy định màu chữ trên bảng điều khiển||
+|| *PANEL_BACKGROUND* ||Quy định màu nền bảng điều khiển||
+|| *LANG* ||Mảng chứa các từ mô tả kiểu gõ và chức năng trên bảng điều khiển||
+|| *IGNORE_ID* ||Mảng chứa id của các ô nhập văn bản không có nhu cầu gõ tiếng Việt||
+
+==Các thuộc tính==
+
+Lưu ý chung: các thuộc tính này quy định cách làm việc của Mudim, và sẽ ảnh hưởng ngay lập tức đến nó nếu được gán trực tiếp giá trị (trừ showPanel). Tuy nhiên khi đó những thiết lập sẽ không được lưu lại. Các thiết lập chỉ được lưu lại khi thuộc tính được thay đổi thông qua các hàm tương ứng.
+
+*Mudim.method*
+
+Quy định kiểu gõ với các giá trị 0(Tắt), 1(Vni), 2(Telex), 3(Viqr), 4(Tổng hợp 3 kiểu). 
+
+*Mudim.oldMethod*
+
+Quy định kiểu gõ gần đây nhất, dùng khi bật/tắt bộ gõ.
+
+*Mudim.newAccentRule*
+
+Lựa chọn bỏ dấu kiểu mới : true hoặc false
+
+*Mudim.showPanel*
+
+Hiện hoặc ẩn bảng điều khiển : true hoặc false
+
+==Các hàm==
+
+===Các hàm thay đổi kiểu gõ===
+
+*Mudim.SetMethod(m)* 
+
+Chọn kiểu gõ
+  * m : kiểu gõ, nhận giá trị 0-4.
+
+*Mudim.SwitchMethod()* 
+
+Thay đổi kiểu gõ theo hướng tăng dần và vòng tròn
+
+*Mudim.Toggle()* 
+
+Bật tắt bộ gõ, đảo giá trị của Mudim.method và Mudim.oldMethod
+
+===Các hàm thay đổi kiểm tra chính tả và kiểu bỏ dấu===
+
+*CHIM.Speller.Toggle()* 
+
+Bật tắt chế độ kiểm tra chính tả
+
+*Mudim.ToggleAccentRule()
+
+Bật tắt chế độ bỏ dấu kiểu mới
+
+===Các hàm quản lý thuộc tính===
+
+*Mudim.SetPreference()*
+
+Lưu các thuộc tính vào cookie
+
+*Mudim.GetPreference()*
+
+Lấy giá trị các thuộc tính từ cookie
+
+===Các hàm liên quan đến bảng điều khiển===
+
+*Mudim.TogglePanel()*
+
+Ẩn/Hiện bảng điều khiển
+
+*Mudim.ShowPanel()*
+
+Hiện bảng điều khiển
+
+*Mudim.HidePanel()*
+
+Ẩn bảng điều khiển
+
+===Các hàm liên quan đến việc tìm và gắn bộ gõ vào các ô nhập văn bản===
+
+*CHIM.Activate*
+
+*CHIM.Attach*
+
+*CHIM.MouseDown*
+
+*CHIM.KeyDown*
+
+*CHIM.KeyHandler*
+
+===Các hàm quyết định hoạt động của bộ gõ===
+
+*CHIM.AddKey*
+
+Tiếp nhận 1 ký tự từ bàn phím để xử lý
+
+*Mudim.FindAccentPos*
+
+Tìm vị trí bỏ dấu dựa trên nội dung hiện tại của buffer và ký tự tiếp theo
+
+*Mudim.PutMark*
+
+Bỏ dấu phù hợp với ký tự cần bỏ dấu và bảng mã
+
+*CHIM.Append*
+
+Thêm ký tự vào buffer
+
+*Mudim.AdjustAccent*
+
+Điều chỉnh vị trí dấu nếu cần thiết
+
+*Mudim.UpdateUI
+
+Cập nhật nội dung buffer vào ô văn bản
+
