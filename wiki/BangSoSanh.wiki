@@ -1,4 +1,5 @@
 #summary So sánh các đặc tính của một số bộ gõ tiếng Việt cho trang web hiện nay
+#labels Featured
 
 Các phiên bản test : Mudim 0.5-22, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
 
