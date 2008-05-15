@@ -1,4 +1,4 @@
-#Mô tả ngắn gọn các hàm và thuộc tính của Mudim
+#summary Mô tả ngắn gọn các hàm và thuộc tính của Mudim
 
 = Sơ lược =
 
@@ -123,4 +123,3 @@ Thêm ký tự vào buffer
 *Mudim.UpdateUI
 
 Cập nhật nội dung buffer vào ô văn bản
-
