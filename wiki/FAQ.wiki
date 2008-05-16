@@ -46,7 +46,7 @@ Cách này có thể áp dụng với bất kỳ ô nhập văn bản nào, bao 
 
 ===Làm thế nào để bảng điều khiển không hiện theo mặc định ?===
 
-Gọi hàm Mudim.HidePanel() ở cuối file mudim.js
+Gọi hàm *Mudim.HidePanel* (xem [MudimAPI]) ở cuối file mudim.js
 
 ===Làm thế nào để ẩn hiện bằng bảng điều khiển dùng button hoặc link===
 
