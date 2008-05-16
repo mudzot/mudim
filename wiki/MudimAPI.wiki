@@ -39,16 +39,16 @@ Hiện hoặc ẩn bảng điều khiển : true hoặc false
 
 ===Các hàm thay đổi kiểu gõ===
 
-*Mudim.SetMethod(m)* 
+*CHIM.SetMethod(m)* 
 
 Chọn kiểu gõ
   * m : kiểu gõ, nhận giá trị 0-4.
 
-*Mudim.SwitchMethod()* 
+*CHIM.SwitchMethod()* 
 
 Thay đổi kiểu gõ theo hướng tăng dần và vòng tròn
 
-*Mudim.Toggle()* 
+*CHIM.Toggle()* 
 
 Bật tắt bộ gõ, đảo giá trị của Mudim.method và Mudim.oldMethod
 
