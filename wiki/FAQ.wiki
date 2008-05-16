@@ -7,6 +7,7 @@ Trang này giải đáp vấn đề thường gặp trong quá trình tích hợ
 
 Tuy phần code chính của Mudim đã được pack lại, không thể đọc hiểu nhưng nó vẫn tuân theo [MudimAPI] và bạn hoàn toàn có thể viết thêm code hiệu chỉnh Mudim ở cuối file mudim.js. Những hàm và thuộc tính được nhắc đến trong bài viết này bạn có thể tham khảo [MudimAPI].
 
+Phiên bản Mudim được dùng phải từ r58 trở đi.
 
 = Nội dung =
 
