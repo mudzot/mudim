@@ -114,7 +114,7 @@ Bỏ dấu phù hợp với ký tự cần bỏ dấu và bảng mã
 
 *CHIM.Append*
 
-Thêm ký tự vào buffer
+Thêm ký tự vào buffer và kiểm tra chính tả nếu cần
 
 *Mudim.AdjustAccent*
 
