@@ -1,4 +1,5 @@
 #summary Giải đáp các vấn đề khi cài đặt Mudim
+#labels Featured,Phase-Deploy
 
 = Giới thiệu =
 
