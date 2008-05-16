@@ -2,7 +2,7 @@
 
 = Sơ lược =
 
-Tất cả các hàm, thuộc tính và hằng số trong Mudim đều bắt đầu bằng CHIM. hoặc Mudim. tuy không đúng với bản chất class lắm, giống namespace hơn, cho biết những hàm nào thừa kế từ CHIM. Những mô tả dưới đây áp dụng từ r51 trở đi.
+Tất cả các hàm, thuộc tính và hằng số trong Mudim đều bắt đầu bằng CHIM. hoặc Mudim. tuy không đúng với bản chất class lắm, giống namespace hơn, cho biết những hàm nào thừa kế từ CHIM. Những mô tả dưới đây áp dụng từ r58 trở đi.
 
 
 = Chi tiết =
