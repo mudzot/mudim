@@ -48,11 +48,11 @@ Cách này có thể áp dụng với bất kỳ ô nhập văn bản nào, bao 
 
 Gọi hàm Mudim.HidePanel() ở cuối file mudim.js
 
-===Làm thé nào để ẩn hiện bằng bảng điều khiển dùng button hoặc link===
+===Làm thế nào để ẩn hiện bằng bảng điều khiển dùng button hoặc link===
 
 Bạn hãy đặt hàm xử lý event {{{onclick="Mudim.TogglePanel()"}}}. Ví dụ:
 {{{
-<input type="button" value="Bật tắt bộ gõ" onclick="Mudim.TogglePanel()>
+<input type="button" value="Bật tắt bộ gõ" onclick="Mudim.TogglePanel()">
 }}}
 hoặc
 {{{
