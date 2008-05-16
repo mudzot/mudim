@@ -1,0 +1,84 @@
+#summary Giải đáp các vấn đề khi cài đặt Mudim
+
+= Giới thiệu =
+
+Trang này giải đáp vấn đề thường gặp trong quá trình tích hợp Mudim vào trang web, giúp Mudim bạn hiệu chỉnh Mudim một cách phù hợp nhất với hệ thống của bạn. Tài liệu này được viết dưới dạng hỏi đáp, chủ yếu hướng tới developer. 
+
+Tuy phần code chính của Mudim đã được pack lại, không thể đọc hiểu nhưng nó vẫn tuân theo [MudimAPI] và bạn hoàn toàn có thể viết thêm code hiệu chỉnh Mudim ở cuối file mudim.js. Những hàm và thuộc tính được nhắc đến trong bài viết này bạn có thể tham khảo [MudimAPI].
+
+
+= Nội dung =
+
+===Làm thế nào tuỳ biến giao diện của bảng điều khiển ?===
+
+Bạn có thể tuỳ biến các thuộc tính sau của giao diện: màu chữ, màu nền, ngôn ngữ hiển thị.
+ * *Màu chữ* : quy định bởi Mudim.COLOR, mặc định mang giá trị 
+{{{
+Mudim.COLOR='Black';
+}}} 
+bạn có thể thay đổi {{{Black}}} thành bất cứ màu hợp lệ nào của HTML, ví dụ {{{Orange}}} hoặc {{{#FFFFAA}}}.
+ * *Màu nền* : quy định bởi PANEL_BACKGROUND với giá trị mặc định 
+{{{
+Mudim.PANEL_BACKGROUND='lightYellow';
+}}}
+bạn có thể thay đổi theo cách tương tự như màu chữ.
+ * *Ngôn ngữ hiển thị* : tên gọi các kiểu gõ và chức năng, nếu không muốn dùng giá trị mặc định bạn hãy thay đổi ở mạng LANG, chú ý đến thứ tự của các từ
+
+{{{
+Mudim.LANG=['Tắt','VNI','Telex','Viqr','Tự động','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];
+}}}
+
+===Nếu tôi không muốn gõ tiếng Việt trên một textbox ?===
+
+Bạn hãy đặt id của textbox đó vào mảng Mudim.IGNORE_ID. Ví dụ bạn có textbox
+
+{{{
+<input id='en_text' type='text' name='englishtext'>
+<input id='notViet' type='text' name='test'>
+}}}
+
+và bạn không muốn gõ tiếng Việt trong 2 ô này hãy đặt 
+{{{
+Mudim.IGNORE_ID=['en_text','notViet'];
+}}}
+
+Cách này có thể áp dụng với bất kỳ ô nhập văn bản nào, bao gồm textbox, textarea và iframe .
+
+===Làm thế nào để bảng điều khiển không hiện theo mặc định ?===
+
+Gọi hàm Mudim.HidePanel() ở cuối file mudim.js
+
+===Làm thé nào để ẩn hiện bằng bảng điều khiển dùng button hoặc link===
+
+Bạn hãy đặt hàm xử lý event {{{onclick="Mudim.TogglePanel()"}}}. Ví dụ:
+{{{
+<input type="button" value="Bật tắt bộ gõ" onclick="Mudim.TogglePanel()>
+}}}
+hoặc
+{{{
+<a href="#" onclick="Mudim.TogglePanel()">Bật tắt bộ gõ</a>
+}}}
+
+===Nếu tôi muốn tự làm radio button mà không muốn dùng bảng điều khiển ?===
+
+Bạn sẽ cần bộ 5 radio buttons cho 5 kiểu gõ với hàm xử lý event onclick là *Mudim.SetMethod* tương ứng (xem [MudimAPI]). Ngoài ra cần 1 checkbox cho kiểu bỏ dấu, 1 checkbox cho kiểm tra chính tả. ID của tất cả các thành phần này phải được gán vào hằng số tương ứng của Mudim là *Mudim.DIPSPLAY_ID*, *Mudim.SPELLCHECK_ID* và *Mudim.ACCENTRULE_ID* như ví dụ dưới đây
+{{{
+Mudim.DISPLAY_ID=['my-off','my-vni','my-telex','my-viqr','my-auto'];
+Mudim.SPELLCHECK_ID='my-checkspell';
+Mudim.ACCENTRULE_ID='my-accentrule';
+
+<input id="my-off" onclick="Mudim.SetMethod(0);" type=radio name=my-method>Tắt
+<input id="my-vni" onclick="Mudim.SetMethod(1);" type=radio name=my-method>Vni
+<input id="my-telex" onclick="Mudim.SetMethod(2);" type=radio name=my-method>Telex 
+<input id="my-viqr" onclick="Mudim.SetMethod(3);" type=radio name=my-method>Viqr
+<input id="my-auto" onclick="Mudim.SetMethod(4);" type=radio name=my-method>Tự động 
+<input id="my-checkspell" onclick="Mudim.ToggleSpeller();" type=checkbox>Kiểm tra chính tả 
+<input id="my-accentrule" onclick="Mudim.ToggleAccentRule();" type=checkbox>Bỏ dấu kiểu mới
+}}}
+
+Lưu ý: các giá trị sau đã được sử dụng cho bảng điều khiển, bạn không nên đặt ID trùng với những giá trị này.
+{{{
+Mudim.DISPLAY_ID=['mudim-off','mudim-vni','mudim-telex','mudim-viqr','mudim-auto'];
+Mudim.SPELLCHECK_ID='mudim-checkspell';
+Mudim.ACCENTRULE_ID='mudim-accentrule';
+}}}
