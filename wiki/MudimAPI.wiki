@@ -2,7 +2,7 @@
 
 = Sơ lược =
 
-Tất cả các hàm và thuộc tính trong Mudim đều bắt đầu bằng CHIM. hoặc Mudim. tuy không đúng với bản chất class lắm, giống namespace hơn, cho biết những hàm nào thừa kế từ CHIM.
+Tất cả các hàm, thuộc tính và hằng số trong Mudim đều bắt đầu bằng CHIM. hoặc Mudim. tuy không đúng với bản chất class lắm, giống namespace hơn, cho biết những hàm nào thừa kế từ CHIM. Những mô tả dưới đây áp dụng từ r47 trở đi.
 
 
 = Chi tiết =
@@ -10,10 +10,10 @@ Tất cả các hàm và thuộc tính trong Mudim đều bắt đầu bằng CH
 ==Các hằng số==
 
 ||Tên||Tác dụng||
-|| *COLOR* ||Quy định màu chữ trên bảng điều khiển||
-|| *PANEL_BACKGROUND* ||Quy định màu nền bảng điều khiển||
-|| *LANG* ||Mảng chứa các từ mô tả kiểu gõ và chức năng trên bảng điều khiển||
-|| *IGNORE_ID* ||Mảng chứa id của các ô nhập văn bản không có nhu cầu gõ tiếng Việt||
+|| *Mudim.COLOR* ||Quy định màu chữ trên bảng điều khiển||
+|| *Mudim.PANEL_BACKGROUND* ||Quy định màu nền bảng điều khiển||
+|| *Mudim.LANG* ||Mảng chứa các từ mô tả kiểu gõ và chức năng trên bảng điều khiển||
+|| *Mudim.IGNORE_ID* ||Mảng chứa id của các ô nhập văn bản không có nhu cầu gõ tiếng Việt||
 
 ==Các thuộc tính==
 
