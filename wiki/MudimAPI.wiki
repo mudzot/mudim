@@ -2,7 +2,7 @@
 
 = Sơ lược =
 
-Tất cả các hàm, thuộc tính và hằng số trong Mudim đều bắt đầu bằng CHIM. hoặc Mudim. tuy không đúng với bản chất class lắm, giống namespace hơn, cho biết những hàm nào thừa kế từ CHIM. Những mô tả dưới đây áp dụng từ r47 trở đi.
+Tất cả các hàm, thuộc tính và hằng số trong Mudim đều bắt đầu bằng CHIM. hoặc Mudim. tuy không đúng với bản chất class lắm, giống namespace hơn, cho biết những hàm nào thừa kế từ CHIM. Những mô tả dưới đây áp dụng từ r51 trở đi.
 
 
 = Chi tiết =
@@ -39,22 +39,22 @@ Hiện hoặc ẩn bảng điều khiển : true hoặc false
 
 ===Các hàm thay đổi kiểu gõ===
 
-*CHIM.SetMethod(m)* 
+*Mudim.SetMethod(m)* 
 
 Chọn kiểu gõ
   * m : kiểu gõ, nhận giá trị 0-4.
 
-*CHIM.SwitchMethod()* 
+*Mudim.SwitchMethod()* 
 
 Thay đổi kiểu gõ theo hướng tăng dần và vòng tròn
 
-*CHIM.Toggle()* 
+*Mudim.Toggle()* 
 
 Bật tắt bộ gõ, đảo giá trị của Mudim.method và Mudim.oldMethod
 
 ===Các hàm thay đổi kiểm tra chính tả và kiểu bỏ dấu===
 
-*CHIM.Speller.Toggle()* 
+*Mudim.ToggleSpeller()* 
 
 Bật tắt chế độ kiểm tra chính tả
 
