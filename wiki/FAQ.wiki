@@ -11,8 +11,8 @@ Phiên bản Mudim được dùng phải từ r58 trở đi.
 
 = Nội dung =
 
-===Làm thế nào tuỳ biến giao diện của bảng điều khiển ?===
-
+===1. Làm thế nào tuỳ biến giao diện của bảng điều khiển ?===
+ 
 Bạn có thể tuỳ biến các thuộc tính sau của giao diện: màu chữ, màu nền, ngôn ngữ hiển thị.
  * *Màu chữ* : quy định bởi Mudim.COLOR, mặc định mang giá trị 
 {{{
@@ -27,10 +27,10 @@ bạn có thể thay đổi theo cách tương tự như màu chữ.
  * *Ngôn ngữ hiển thị* : tên gọi các kiểu gõ và chức năng, nếu không muốn dùng giá trị mặc định bạn hãy thay đổi ở mạng LANG, chú ý đến thứ tự của các từ
 
 {{{
-Mudim.LANG=['Tắt','VNI','Telex','Viqr','Tự động','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];
+Mudim.LANG=['Tắt','VNI','Telex','Viqr','Tổng hợp','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];
 }}}
 
-===Nếu tôi không muốn gõ tiếng Việt trên một textbox ?===
+===2. Nếu tôi không muốn gõ tiếng Việt trên một textbox ?===
 
 Bạn hãy đặt id của textbox đó vào mảng Mudim.IGNORE_ID. Ví dụ bạn có textbox
 
@@ -46,7 +46,7 @@ Mudim.IGNORE_ID=['en_text','notViet'];
 
 Cách này có thể áp dụng với bất kỳ ô nhập văn bản nào, bao gồm textbox, textarea và iframe .
 
-===Làm thế nào để bảng điều khiển không hiện theo mặc định ?===
+===3. Làm thế nào để bảng điều khiển không hiện theo mặc định ?===
 
 Gọi hàm *Mudim.HidePanel* (xem [MudimAPI]) ở cuối file mudim.js
 
@@ -61,7 +61,7 @@ hoặc
 <a href="#" onclick="Mudim.TogglePanel()">Bật tắt bộ gõ</a>
 }}}
 
-===Nếu tôi muốn tự làm radio button mà không muốn dùng bảng điều khiển ?===
+===4. Nếu tôi muốn tự làm radio button mà không muốn dùng bảng điều khiển ?===
 
 Bạn sẽ cần bộ 5 radio buttons cho 5 kiểu gõ với hàm xử lý event onclick là *Mudim.SetMethod* tương ứng (xem [MudimAPI]). Ngoài ra cần 1 checkbox cho kiểu bỏ dấu, 1 checkbox cho kiểm tra chính tả. ID của tất cả các thành phần này phải được gán vào hằng số tương ứng của Mudim là *Mudim.DIPSPLAY_ID*, *Mudim.SPELLCHECK_ID* và *Mudim.ACCENTRULE_ID* như ví dụ dưới đây
 {{{
@@ -84,3 +84,15 @@ Mudim.DISPLAY_ID=['mudim-off','mudim-vni','mudim-telex','mudim-viqr','mudim-auto
 Mudim.SPELLCHECK_ID='mudim-checkspell';
 Mudim.ACCENTRULE_ID='mudim-accentrule';
 }}}
+
+===5. Nếu tôi muốn tự mình sửa source code thì sao ?===
+
+Bạn hãy vào tab *Source*, browse đến thư mục trunk và lấy về bản Mudim đang phát triển mang tên mudim-dev.js. Bạn có thể tuỳ ý sửa chữa theo ý mình. Tuy nhiên file mudim-dev.js được khuyến cáo không nên dùng trong môi trường production với các lý do:
+ * Kích thước file mudim-dev.js to gần gấp 3 lần file mudim.js của phiên bản release.
+ * Có rất nhiều dòng lệnh phục vụ cho việc debug trong mudim-dev.js dẫn đến hệ quả performance giảm nghiêm trọng trên những máy dùng firefox có firebug hoặc phải chịu rất nhiều popup trong những trường hợp còn lại. Bạn có thể gán console.debug thành 1 hàm rỗng hoặc tìm xoá tất cả các dòng console.debug trong mudim-dev.js nhưng đấy không phải cách tối ưu.
+
+Giải pháp được khuyến khích là hãy checkout nguyên folder trunk trong đó đã có 2 file python có nhiệm vụ nén mudim-dev.js thành mudim.js trong cùng thư mục bằng lệnh:
+{{{
+build.py js
+}}}
+File mudim.js nhận được sẽ có kích thước khoảng 19KB.
