@@ -5,7 +5,7 @@
 
 ===Cài đặt Mudim===
 
-Để tích hợp Mudim vào trang web của bạn, tất cả những gì bạn cần làm là thêm *một dòng* dưới đây vào *cuối* trang web
+Để tích hợp Mudim vào trang web của bạn, tất cả những gì bạn cần làm là thêm *một dòng* dưới đây vào bất kỳ vị trí nào trang web, giữa 2 tag <head></head> chẳng hạn.
 
 {{{<script src="/path/to/mudim.js"></script>}}}
 
