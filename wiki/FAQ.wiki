@@ -101,8 +101,4 @@ File mudim.js nhận được sẽ có kích thước khoảng 19KB.
 
 Mục Downloads không phải lúc nào cũng được cập nhật phiên bản mới nhất. Phiên bản này luôn có trong svn theo địa chỉ http://mudim.googlecode.com/svn/trunk/mudim/mudim.js
 
-Đối với bản Firefox extension, việc cập nhật lên addons.mozilla.org còn chậm hơn và bạn phải build từ source để được file cài đặt với lệnh:
-{{{
-build.py ffx
-}}}
-Bạn sẽ nhận được file cài đặt mudim.xpi 
+Đối với bản Firefox extension, bạn có thể tải từ địa chỉ http://mudim.googlecode.com/svn/trunk/mudim-ffx/mudim.xpi
