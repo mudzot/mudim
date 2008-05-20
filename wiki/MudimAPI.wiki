@@ -21,7 +21,7 @@ Lưu ý chung: các thuộc tính này quy định cách làm việc của Mudim
 
 *Mudim.method*
 
-Quy định kiểu gõ với các giá trị 0(Tắt), 1(Vni), 2(Telex), 3(Viqr), 4(Tổng hợp 3 kiểu). 
+Quy định kiểu gõ với các giá trị 0(Tắt), 1(Vni), 2(Telex), 3(Viqr), 4(Tổng hợp 3 kiểu). Xem thêm hàm *Mudim.SetMethod*.
 
 *Mudim.oldMethod*
 
@@ -43,6 +43,7 @@ Hiện hoặc ẩn bảng điều khiển : true hoặc false
 
 Chọn kiểu gõ
   * m : kiểu gõ, nhận giá trị 0-4.
+Hàm SetMethod làm 2 việc, thứ nhất là đặt lại giá trị cho Mudim.method, thứ hai là đặt lại giá trị cookie lưu thiết lập người dùng. Vì vậy nếu bạn thay đổi kiểu gõ không phải do người dùng làm (ví dụ như đặt kiểu gõ mặc định chẳng hạn), thì bạn nên dùng phương pháp gán giá trị trực tiếp cho *Mudim.method* chứ không nên gọi hàm này.
 
 *Mudim.SwitchMethod()* 
 
@@ -50,17 +51,17 @@ Thay đổi kiểu gõ theo hướng tăng dần và vòng tròn
 
 *Mudim.Toggle()* 
 
-Bật tắt bộ gõ, đảo giá trị của Mudim.method và Mudim.oldMethod
+Bật tắt bộ gõ, đảo giá trị của Mudim.method và Mudim.oldMethod. Lưu ý rằng hàm này có đặt lại giá trị cookie. Xem thêm *Mudim.SetMethod*.
 
 ===Các hàm thay đổi kiểm tra chính tả và kiểu bỏ dấu===
 
 *Mudim.ToggleSpeller()* 
 
-Bật tắt chế độ kiểm tra chính tả
+Bật tắt chế độ kiểm tra chính tả.Lưu ý rằng hàm này có đặt lại giá trị cookie
 
 *Mudim.ToggleAccentRule()
 
-Bật tắt chế độ bỏ dấu kiểu mới
+Bật tắt chế độ bỏ dấu kiểu mới.Lưu ý rằng hàm này có đặt lại giá trị cookie
 
 ===Các hàm quản lý thuộc tính===
 
@@ -76,15 +77,15 @@ Lấy giá trị các thuộc tính từ cookie
 
 *Mudim.TogglePanel()*
 
-Ẩn/Hiện bảng điều khiển
+Ẩn/Hiện bảng điều khiển.Lưu ý rằng hàm này có đặt lại giá trị cookie
 
 *Mudim.ShowPanel()*
 
-Hiện bảng điều khiển
+Hiện bảng điều khiển. Lưu ý rằng hàm này *không* đặt lại giá trị cookie
 
 *Mudim.HidePanel()*
 
-Ẩn bảng điều khiển
+Ẩn bảng điều khiển. Lưu ý rằng hàm này *không* đặt lại giá trị cookie
 
 ===Các hàm liên quan đến việc tìm và gắn bộ gõ vào các ô nhập văn bản===
 
