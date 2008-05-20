@@ -1,7 +1,7 @@
 #summary Mudim plugin dành cho các ứng dụng web
 #labels Phase-Deploy
 
-Ở đây bạn có thể tìm thấy Mudim plugin dành cho các loại CMS, forum thông dụng. Các plugin này được viết ra với mục đích đơn giản hoá việc cài đặt bộ gõ Mudim cho các webmaster, phần lớn trong số này chỉ cung cấp Mudim với các thiết lập mặc định. Nếu bạn muốn tuỳ biến Mudim mà plugin ở đây chưa hỗ trợ, có lẽ bạn phải tự tay làm thôi.
+Ở đây bạn có thể tìm thấy Mudim plugin dành cho các loại CMS, forum thông dụng. Lưu ý bạn nên gỡ bỏ các bộ gõ đang cài đặt nếu có. Các plugin này được viết ra với mục đích đơn giản hoá việc cài đặt bộ gõ Mudim cho các webmaster, phần lớn trong số này chỉ cung cấp Mudim với các thiết lập mặc định. Nếu bạn muốn tuỳ biến Mudim mà plugin ở đây chưa hỗ trợ, có lẽ bạn phải tự tay làm thôi.
 
 
 = Wordpress =
