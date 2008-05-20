@@ -10,7 +10,7 @@ Plugin đã được test với Wordpress 2.4 và 2.5
 
 Hướng dẫn sử dụng: giải nén file zip để được thư mục mudim chứa 2 file mudim.php và mudim.js. Copy thư mục này vào wp-content/plugins. Vào Admin Dashboard chọn link *Plugins* bạn sẽ thấy Mudim plugin trong danh sách, bấm vào link *Activate* để kích hoạt plugin.
 
- * Donwload: [http://mudim.googlecode.com/svn/trunk/mudim-wpp/mudim-wpp.zip mudim-wpp.zip]
+ * Donwload: [http://mudim.googlecode.com/files/mudim-wpp-r91.zip mudim-wpp.zip]
 
 = Drupal =
 
