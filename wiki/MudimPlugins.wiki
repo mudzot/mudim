@@ -12,6 +12,23 @@ Hướng dẫn sử dụng: giải nén file zip để được thư mục mudim
 
  * Donwload: [http://mudim.googlecode.com/files/mudim-wpp-r91.zip mudim-wpp.zip]
 
+= Vbulletin forum =
+
+Hướng dẫn sử dụng: 
+- Giải nén file zip để được 2 file mudim.js và product-mudim.xml. 
+
+- Bạn hãy upload file mudim.js vào thư mục _<thư mục cài đặt vbb>/clientscript/_ 
+
+- Sau đó vào Admin Control Panel bấm vào link *Plugins and Products* chọn *Manage Products* . Kéo xuống cuối trang và bấm link *Add/Import Product*.
+
+- Bấm nút *Browse...* và chọn file product-mudim.xml từ máy bạn, chọn Allow overwrite là Yes và bấm nút *Import*.
+
+Vậy là xong, giờ bạn có thể gõ tiếng Việt trên diễn đàn với Mudim (trong Admin CP thì chưa gõ được).
+
+Đã test với vbb 3.6 và 3.7.
+
+ * Download: [http://mudim.googlecode.com/files/mudim-vbb-r93.zip mudim-vbb.zip]
+
 = Drupal =
 
 <Đang có kế hoạch làm>
