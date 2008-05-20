@@ -1,0 +1,17 @@
+#summary Mudim plugin dành cho các ứng dụng web
+#labels Phase-Deploy
+
+Ở đây bạn có thể tìm thấy Mudim plugin dành cho các loại CMS, forum thông dụng. Các plugin này được viết ra với mục đích đơn giản hoá việc cài đặt bộ gõ Mudim cho các webmaster, phần lớn trong số này chỉ cung cấp Mudim với các thiết lập mặc định. Nếu bạn muốn tuỳ biến Mudim mà plugin ở đây chưa hỗ trợ, có lẽ bạn phải tự tay làm thôi.
+
+
+= Wordpress =
+
+Plugin đã được test với Wordpress 2.4 và 2.5
+
+Hướng dẫn sử dụng: giải nén file zip để được thư mục mudim chứa 2 file mudim.php và mudim.js. Copy thư mục này vào wp-content/plugins. Vào Admin Dashboard chọn link *Plugins* bạn sẽ thấy Mudim plugin trong danh sách, bấm vào link *Activate* để kích hoạt plugin.
+
+ * Donwload: [http://mudim.googlecode.com/svn/trunk/mudim-wpp/mudim-wpp.zip mudim-wpp.zip]
+
+= Drupal =
+
+<Đang có kế hoạch làm>
