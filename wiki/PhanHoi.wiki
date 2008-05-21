@@ -1,0 +1,9 @@
+#summary Những phản hồi từ người sử dụng. Bạn đã dùng Mudim chưa ?
+
+== Lời ngỏ ==
+
+Bộ gõ Mudim ra đời chưa lâu nhưng có lẽ cũng đã có số lượng người dùng nhất định. Nếu trang web của bạn đã ứng dụng thành công Mudim, nên chăng bạn viết 1 comment giới thiệu cho mọi người biết về trang của bạn, chia sẻ những kinh nghiệm của bạn khi sử dụng Mudim ? Cũng là để những người đang phân vân về việc sử dụng Mudim có thêm thông tin. Còn nếu bạn nằm trong số này, hãy xem Mudim đã được ứng dụng như thế nào trong những trang web thực sự, không chỉ là trang [http://www.anhn.net/test/mudim/ test] mà bạn hẳn đã xem qua. Có thể bạn sẽ đi đến quyết định cuối cùng nhanh chóng :)
+
+Dù bạn là ai, hy vọng trang này cũng đem lại thông tin có ích cho bạn.
+
+_PS: Những góp ý hoặc báo lỗi về việc phát triển Mudim xin gửi ở trang [http://code.google.com/p/mudim/issues/list Issues]_
