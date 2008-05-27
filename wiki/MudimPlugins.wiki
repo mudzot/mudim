@@ -6,13 +6,15 @@
 
 = Wordpress =
 
+ * Donwload: [http://mudim.googlecode.com/svn/trunk/mudim-wpp/mudim-wpp.zip mudim-wpp.zip]
+
 Plugin đã được test với Wordpress 2.4 và 2.5
 
 Hướng dẫn sử dụng: giải nén file zip để được thư mục mudim chứa 2 file mudim.php và mudim.js. Copy thư mục này vào wp-content/plugins. Vào Admin Dashboard chọn link *Plugins* bạn sẽ thấy Mudim plugin trong danh sách, bấm vào link *Activate* để kích hoạt plugin.
 
- * Donwload: [http://mudim.googlecode.com/svn/trunk/mudim-wpp/mudim-wpp.zip mudim-wpp.zip]
-
 = Vbulletin forum =
+
+ * Download: [http://mudim.googlecode.com/svn/trunk/mudim-vbb/mudim-vbb.zip mudim-vbb.zip]
 
 Hướng dẫn sử dụng: 
 - Giải nén file zip để được 2 file mudim.js và product-mudim.xml. 
@@ -27,10 +29,9 @@ Vậy là xong, giờ bạn có thể gõ tiếng Việt trên diễn đàn vớ
 
 Đã test với vbb 3.6 và 3.7.
 
- * Download: [http://mudim.googlecode.com/svn/trunk/mudim-vbb/mudim-vbb.zip mudim-vbb.zip]
-
 = Joomla =
-* Download: [http://mudim.googlecode.com/svn/trunk/mudim-vbb/mudim-jla.zip mudim-jla.zip]
+
+ * Download: [http://mudim.googlecode.com/svn/trunk/mudim-jla/mudim-jla.zip mudim-jla.zip]
 
 Hướng dẫn :
 - Giải nén file zip để được 2 file mudim.js và mudim.zip
@@ -44,6 +45,8 @@ Hướng dẫn :
 - Bấm *Upload File & Install*
 
 Bây giờ bạn đã có thể gõ tiếng Việt với Mudim ở cả backend và frontend và có thể enable/disable Mudim ở menu Extensions - Plugin Manager
+
+Đã test với Joomla 1.5
 
 = Drupal =
 
