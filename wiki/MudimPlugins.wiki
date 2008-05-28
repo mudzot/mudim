@@ -34,15 +34,14 @@ Vậy là xong, giờ bạn có thể gõ tiếng Việt trên diễn đàn vớ
  * Download: [http://mudim.googlecode.com/svn/trunk/mudim-jla/mudim-jla.zip mudim-jla.zip]
 
 Hướng dẫn :
-- Giải nén file zip để được 2 file mudim.js và mudim.zip
-
-- Upload file mudim.js vào thư mục _<thư mục cài đặt Joomla>/includes/js/_
 
 - Vào Admin CP chọn menu *Extensions - Install/Uninstall*
 
-- Ở mục *Upload Package File* bấm *Browse...* và chọn file mudim.zip
+- Ở mục *Upload Package File* bấm *Browse...* và chọn file mudim-jla.zip
 
 - Bấm *Upload File & Install*
+
+- Vào *Extensions - Plugin Manager* để Enable Mudim nếu cần
 
 Bây giờ bạn đã có thể gõ tiếng Việt với Mudim ở cả backend và frontend và có thể enable/disable Mudim ở menu Extensions - Plugin Manager
 
