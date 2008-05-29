@@ -48,7 +48,10 @@ Cách này có thể áp dụng với bất kỳ ô nhập văn bản nào, bao 
 
 ===3. Làm thế nào để bảng điều khiển không hiện theo mặc định ?===
 
-Gọi hàm *Mudim.HidePanel* (xem [MudimAPI]) ở cuối file mudim.js
+Gán giá trị cho Mudim.showPanel ở cuối file mudim.js. Ví dụ: 
+{{{
+Mudim.showPanel = false;
+}}}
 
 ===4. Làm thế nào để đặt kiểu gõ mặc định ?===
 
