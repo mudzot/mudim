@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<overlay id="sample" 
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<statusbar id="status-bar">
+		<statusbarpanel>
+			<box id="mudim-button" label="Mudim" onclick="Mudim.StatusBarClicked(event)">
+			<image src="chrome://mudim/skin/simple/off.png" tooltiptext="Mudim 0.8.125 - Vietnamese Input Method" id="menubutton"/>
+			<menupopup onpopupshowing="Mudim.UpdateMenu(this);" oncommand="Mudim.MenuClicked(event.target); event.stopPropagation();">
+				<menuitem label="Mixed" type="checkbox" value="4"/>
+				<menuitem label="Viqr" type="checkbox" value="3"/>
+				<menuitem label="Telex" type="checkbox" value="2"/>
+				<menuitem label="Vni" type="checkbox" value="1"/>
+				<menuseparator/>
+				<menuitem label="Off" type="checkbox" value="0"/>
+				<menuseparator/>
+				<menuitem label="Spell check" type="checkbox" value="5"/>
+				<menuseparator/>
+				<menuitem label="New accent rule" type="checkbox" value="6"/>
+				<menuseparator/>
+				<menuitem label="Type in URL bar" type="checkbox" value="7"/>
+				<menuseparator/>
+				<menu label="Skin">
+					<menupopup onpopupshowing="Mudim.UpdateMenuSkin(this);" oncommand="Mudim.MenuSkinClicked(event.target); event.stopPropagation();">
+						<menuitem label="Simple" type="checkbox" value="0"/>
+						<menuitem label="Solid" type="checkbox" value="1"/>
+						<menuitem label="Light" type="checkbox" value="2"/>
+					</menupopup>
+				</menu>
+			</menupopup>
+			</box>
+		</statusbarpanel>
+	</statusbar>
+	<script src="chrome://mudim/content/mudim.js"/>
+</overlay>
