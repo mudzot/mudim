@@ -1,4 +1,5 @@
 #summary Hướng dẫn sử dụng Mudim
+#labels Featured
 
 Trang này hướng dẫn bạn sử dụng bộ gõ Mudim một cách hiệu quả và tiện lợi.
 
