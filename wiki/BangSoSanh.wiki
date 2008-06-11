@@ -28,3 +28,4 @@ Chi tiết về ưu điểm của Mudim so với các bộ gõ khác (Avim và m
  * Khả năng bỏ dấu ở cuối từ và tự chuyển vị trí bỏ dấu rất tốt
   * mViet không thể bỏ dấu móc hoặc dấu mũ ở cuối từ (với Mudim, bạn gõ có thể gõ chữ "hơn" bằng cách gõ "hown", mViet thì không)
   * Avim có thể bỏ dấu mũ và móc ở cuối từ nhưng không tự chuyển dấu móc (gõ "luwfoi với Avim được "lừoi", với Mudim được "lười")
+ * Khả năng tắt tạm thời bộ gõ và kiểm tra chính tả đối với 1 từ sắp gõ. Bạn có thể dùng Ctrl để tạm thời tắt chức năng kiểm tả chính tả đối với từ đang/sắp gõ, sẽ rất có ích khi bạn gõ những từ không thuộc hệ thống tiếng Việt chuẩn hoặc các từ phiên âm tiếng nước ngoài, ví dụ như alô (gõ [Ctrl]aloo) hay Lagrăng (gõ Lagr[Ctrl]awng). Tương tự như vậy, phím Shift dùng để tạm thời tắt bộ gõ với từ sắp gõ. Chi tiết hơn xem tại trang [HuongDanSuDung]
