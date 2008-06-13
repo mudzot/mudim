@@ -9,6 +9,8 @@ Tuy phần code chính của Mudim đã được pack lại, không thể đọc
 
 Phiên bản Mudim được dùng phải từ r58 trở đi.
 
+Từ r133, cơ chế tuỳ biến Mudim được cải thiện với 2 hàm Mudim.BeforeInit() và Mudim.AfterInit(). Hàm Mudim.BeforeInit() được gọi *trước* khi kích hoạt Mudim.AfterInit() được gọi *sau* khi kích hoạt. Quy tắc chung khi tuỳ biến là khi gán những hằng số, thuộc tính của Mudim thì nên để trong BeforeInit, còn khi gọi các hàm thì nên để trong AfterInit().
+
 = Nội dung =
 
 ===1. Làm thế nào tuỳ biến giao diện của bảng điều khiển ?===
@@ -109,3 +111,13 @@ File mudim.js nhận được sẽ có kích thước khoảng 19KB.
 Mục Downloads không phải lúc nào cũng được cập nhật phiên bản mới nhất. Phiên bản này luôn có trong svn theo địa chỉ http://mudim.googlecode.com/svn/trunk/mudim/mudim.js
 
 Đối với bản Firefox extension, bạn có thể tải từ địa chỉ http://mudim.googlecode.com/svn/trunk/mudim-ffx/mudim.xpi
+
+===9. Tôi muốn tuỳ biến nhiều hơn với Panel, chẳng hạn như kích cỡ font, kiểu font, ...===
+Bạn có thể nhận được style object của panel với hàm Mudim.GetPanelStyle(). Với object này bạn có thể tuỳ ý chỉnh style với cú pháp javascript. Lưu ý, việc diều chỉnh này nên đặt trong hàm Mudim.AfterInit(). Bạn có thể xem phần cuối file mudim.js để có ví dụ rõ ràng hơn: 
+{{{
+Mudim.AfterInit = function() {
+	//s = Mudim.GetPanelStyle();
+	//s.fontSize = '14pt';
+	//s.fontFamily = 'Serif';
+};
+}}}
