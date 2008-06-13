@@ -4,3 +4,6 @@
  * Thêm vào 2 hooks BeforeInit và AfterInit giúp tùy biến Mudim dễ dàng hơn
 
  * Khắc phục vấn đề nạp Mudim chậm do phải chờ tải hết các tài nguyên khác trong trang web
+
+=== Từ r126 ===
+ * Thêm phương pháp tạm thời tắt bộ gõ (SHIFT) hoặc tạm thời bỏ qua kiểm tra chính tả (CTRL) đối với *một* từ sắp gõ
