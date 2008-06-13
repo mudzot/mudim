@@ -87,6 +87,10 @@ Hiện bảng điều khiển. Lưu ý rằng hàm này *không* đặt lại gi
 
 Ẩn bảng điều khiển. Lưu ý rằng hàm này *không* đặt lại giá trị cookie
 
+*Mudim.GetPanelStyle()*
+
+Trả về style của Panel như một javascript object. Dùng khi bạn muốn tuỳ biến các thuộc tính panel nhiều hơn những giá trị đã được hỗ trợ sẵn.
+
 ===Các hàm liên quan đến việc tìm và gắn bộ gõ vào các ô nhập văn bản===
 
 *CHIM.Activate*
@@ -124,3 +128,13 @@ Thêm ký tự vào buffer và kiểm tra chính tả nếu cần
 *Mudim.UpdateUI
 
 Cập nhật nội dung buffer vào ô văn bản
+
+===Các hàm dùng để tuỳ biến Mudim===
+
+*Mudim.BeforeInit()*
+
+Hàm này sẽ được gọi ngay trước khi kích hoạt bộ gõ. Nội dung của nó sẽ do web developer viết thêm, chủ yếu để gán các hằng số, thuộc tính mặc định cho bộ gõ.
+
+*Mudim.BeforeInit()*
+
+Hàm này sẽ được gọi sau trước khi kích hoạt bộ gõ. Nội dung của nó sẽ do web developer viết thêm, chủ yếu để gọi các hàm và điều chỉnh các đối tượng liên quan đến bộ gõ.
