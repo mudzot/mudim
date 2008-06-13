@@ -1,0 +1,6 @@
+#summary Các thay đổi đáng chú ý qua các Revision
+
+=== Từ r133 ===
+ * Thêm vào 2 hooks BeforeInit và AfterInit giúp tùy biến Mudim dễ dàng hơn
+
+ * Khắc phục vấn đề nạp Mudim chậm do phải chờ tải hết các tài nguyên khác trong trang web
