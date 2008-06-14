@@ -27,19 +27,19 @@ Nếu bạn cảm thấy giao diện mặc định của Mudim đã phù hợp v
 
 *Màu nền và màu chữ của bảng điều khiển*
 
-Mặc định màu nên là lightYellow, bạn có thể đổi thành bất cứ màu nào hợp lệ trong HTML, ví dụ như {{{PANEL_BACKGROUND='lightBlue';}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD';}}}. Tương tự với màu chữ {{{COLOR='Black'}}}
+Mặc định màu nên là lightYellow, bạn có thể đổi thành bất cứ màu nào hợp lệ trong HTML, ví dụ như {{{Mudim.PANEL_BACKGROUND='lightBlue';}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD';}}}. Tương tự với màu chữ {{{COLOR='Black'}}}
 
 *Ngôn ngữ*
 
 Ngôn ngữ mặc định trên bảng điều khiển là tiếng Việt và bạn có thể thay đổi nếu muốn. Những giá trị VNI, Telex, Viqr không thể thay đổi.
 
-{{{LANG=['Tắt','VNI','Telex','Viqr','Tự động','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];}}}
+{{{Mudim.LANG=['Tắt','VNI','Telex','Viqr','Tự động','Chính tả','Bỏ dấu kiểu mới','Bật/Tắt','Ẩn/Hiện bảng điều khiển'];}}}
 
 *Những ô nhập văn bản ngoại lệ*
 
 Nếu trang web của bạn có những ô nhập văn bản bạn không muốn gõ tiếng Việt trong đó, hãy đặt id của các ô đó vào mảng IGNORE_ID:
 
-{{{IGNORE_ID = ['englishform','notViet','camgotiengviet'];}}}
+{{{Mudim.IGNORE_ID = ['englishform','notViet','camgotiengviet'];}}}
 
 = Hướng dẫn cụ thể cho từng ứng dụng web =
 
