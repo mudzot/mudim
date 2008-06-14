@@ -27,7 +27,7 @@ Nếu bạn cảm thấy giao diện mặc định của Mudim đã phù hợp v
 
 *Màu nền và màu chữ của bảng điều khiển*
 
-Mặc định màu nên là lightYellow, bạn có thể đổi thành bất cứ màu nào hợp lệ trong HTML, ví dụ như {{{Mudim.PANEL_BACKGROUND='lightBlue';}}} hoặc {{{PANEL_BACKGROUND='#FFDDDD';}}}. Tương tự với màu chữ {{{COLOR='Black'}}}
+Mặc định màu nên là lightYellow, bạn có thể đổi thành bất cứ màu nào hợp lệ trong HTML, ví dụ như {{{Mudim.PANEL_BACKGROUND='lightBlue';}}} hoặc {{{Mudim.PANEL_BACKGROUND='#FFDDDD';}}}. Tương tự với màu chữ {{{COLOR='Black'}}}
 
 *Ngôn ngữ*
 
