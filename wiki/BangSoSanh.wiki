@@ -23,11 +23,11 @@ Chi tiết về ưu điểm của Mudim so với các bộ gõ khác (Avim và m
  * Với Mudim bạn không cần làm gì khác ngoài việc thêm 1 dòng include bộ gõ vì bảng điều khiển đã có sẵn
  * Khả năng tự động nhận các ô nhập văn bản rất cao 
   * Với các bộ gõ khác khi trang web có dùng fckeditor bạn phải chèn dòng include bộ gõ vào cả trang _fckeditor.original.html_. Tổng quát hơn, Avim và mViet không _tự động_ được nếu bạn cần gõ tiếng Việt trong 1 iframe mà iframe này lại nằm trong 1 iframe khác. 
-  * Tình hình tương tự nếu trang của bạn là trang <frameset> chứa các <frame>, bạn cũng phải chèn dòng include bộ gõ vào các trang chứa trong tag <frame> (*)
+  * Tình hình tương tự nếu trang của bạn là trang <frameset> chứa các <frame>, bạn cũng phải chèn dòng include bộ gõ vào các trang chứa trong tag <frame> (1)
   * Với Mudim bạn chỉ cần chèn vào trang chính là đủ.
  * Khả năng bỏ dấu ở cuối từ và tự chuyển vị trí bỏ dấu rất tốt
   * mViet không thể bỏ dấu móc hoặc dấu mũ ở cuối từ (với Mudim, bạn gõ có thể gõ chữ "hơn" bằng cách gõ "hown", mViet thì không)
   * Avim có thể bỏ dấu mũ và móc ở cuối từ nhưng không tự chuyển dấu móc (gõ "luwfoi với Avim được "lừoi", với Mudim được "lười")
  * Khả năng tắt tạm thời bộ gõ và kiểm tra chính tả đối với 1 từ sắp gõ. Bạn có thể dùng Ctrl để tạm thời tắt chức năng kiểm tả chính tả đối với từ đang/sắp gõ, sẽ rất có ích khi bạn gõ những từ không thuộc hệ thống tiếng Việt chuẩn hoặc các từ phiên âm tiếng nước ngoài, ví dụ như alô (gõ {Ctrl}aloo) hay Lagrăng (gõ Lagr{Ctrl}awng). Tương tự như vậy, phím Shift dùng để tạm thời tắt bộ gõ với từ sắp gõ. Chi tiết hơn xem tại trang [HuongDanSuDung]
 
-(*)Bản Firefox extension mới của Avim đã loại bỏ nhược điểm này
+(1) Bản Firefox extension mới của Avim đã loại bỏ nhược điểm này
