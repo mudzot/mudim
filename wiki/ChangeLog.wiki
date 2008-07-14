@@ -1,5 +1,9 @@
 #summary Các thay đổi đáng chú ý qua các Revision
 
+=== Từ r142 ===
+
+ * Có thêm chế độ thu gọn của thanh điều khiển bộ gõ. Bấm chuột vào link *Mudim* trên thanh điều khiển để chuyển đổi giữa chế độ bình thường và chế độ thu gọn.
+
 === Từ r133 ===
  * Thêm vào 2 hooks BeforeInit và AfterInit giúp tùy biến Mudim dễ dàng hơn
 
