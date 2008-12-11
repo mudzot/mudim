@@ -1,4 +1,7 @@
 #summary Các thay đổi đáng chú ý qua các Revision
+=== Từ r150 ===
+
+ * Thêm kiểu gõ Tự động. Tự động nhận dang kiểu gõ của người dùng khi bấm phím bỏ dấu đầu tiên.
 
 === Từ r142 ===
 
