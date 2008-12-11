@@ -1,4 +1,10 @@
 #summary Các thay đổi đáng chú ý qua các Revision
+
+=== Từ r153 ===
+
+ * Sửa lỗi nhảy con trỏ trong IE, khuyến khích người dùng nên cập nhật.
+ * Hiển thị phương pháp gõ trong chế độ thu gọn
+
 === Từ r150 ===
 
  * Thêm kiểu gõ Tự động. Tự động nhận dang kiểu gõ của người dùng khi bấm phím bỏ dấu đầu tiên.
