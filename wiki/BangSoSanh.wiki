@@ -2,7 +2,8 @@
 #labels Featured
 
 Các phiên bản test : Mudim 0.6-r64, Avim 20071102, CHIM 0.9.3, BIM 0.0.3
-** Bảng so sánh này hiện nay không cập nhật và không đầy đủ, hãy xem bảng so sánh đầy đủ hơn tại đây http://www.1ec5.org/software/avim/compare.html
+
+Bảng so sánh này hiện nay không cập nhật và không đầy đủ, hãy xem bảng so sánh đầy đủ hơn tại đây http://www.1ec5.org/software/avim/compare.html
 
 || ||Mudim||AVIM||CHIM||BIM||mViet||
 ||Kích thước khi sử dụng||19KB||28KB||29KB||35KB||29.5KB||
