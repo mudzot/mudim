@@ -35,6 +35,10 @@ Lựa chọn bỏ dấu kiểu mới : true hoặc false
 
 Hiện hoặc ẩn bảng điều khiển : true hoặc false
 
+*Mudim.displayMode*
+
+Chế độ hiển thị đầy đủ (0) hoặc thu gọn (1)
+
 ==Các hàm==
 
 ===Các hàm thay đổi kiểu gõ===
@@ -135,6 +139,6 @@ Cập nhật nội dung buffer vào ô văn bản
 
 Hàm này sẽ được gọi ngay trước khi kích hoạt bộ gõ. Nội dung của nó sẽ do web developer viết thêm, chủ yếu để gán các hằng số, thuộc tính mặc định cho bộ gõ.
 
-*Mudim.BeforeInit()*
+*Mudim.AfterInit()*
 
 Hàm này sẽ được gọi sau trước khi kích hoạt bộ gõ. Nội dung của nó sẽ do web developer viết thêm, chủ yếu để gọi các hàm và điều chỉnh các đối tượng liên quan đến bộ gõ.
