@@ -47,6 +47,6 @@ Bây giờ bạn đã có thể gõ tiếng Việt với Mudim ở cả backend 
 
 Đã test với Joomla 1.5
 
-= Drupal =
-
-<Đang có kế hoạch làm>
+= Invision Power Board 3 =
+ * Download: [http://mudim.googlecode.com/files/MudimHook%201.0.0.zip]
+Đóng góp bởi Nguyen Viet Cuong <mrcuongnv@gmail.com>
