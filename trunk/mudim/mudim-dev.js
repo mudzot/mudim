@@ -1629,6 +1629,10 @@ for (var i=1;i<100;i++) {
 
 // Change log
 
+//Changes in 0.9
+
+// Fix issue #71
+// Fix bad bug in issue #70
 // Add display modes (full and minimized)
 // Move panel from top to bottom of the page
 // Add 2 hooks BeforeInit and AfterInit
