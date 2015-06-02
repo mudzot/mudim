@@ -489,6 +489,7 @@ CHIM.BackSpace = function() {
 //	Clear internal buffer & Speller status
 //----------------------------------------------------------------------------
 CHIM.ClearBuffer = function() {
+	console.debug('Clear buffer');
 	CHIM.off = 0;
 	Mudim.w=0;
 	CHIM.Speller.Clear();
@@ -588,13 +589,18 @@ CHIM.GetTarget = function(e) {
 		r = e.srcElement;
 	} else {
 		r = e.target;
-		while ( r && r.nodeType != 1 ) // climb up from text nodes on Moz
+		console.debug(r);
+		console.debug(r.nodeType);
+		while ( r && (r.nodeType != 1) ) { // climb up from text nodes on Moz
+			console.debug(r.nodeType);
 			r = r.parentNode;
+		}
 	}
 	if (r.tagName == 'BODY') {
 		r = r.parentNode;
 	}
-	CHIM.peckable = r.tagName=='HTML' || r.type=='textarea' || r.type=='text' || r.type=='search';
+	CHIM.peckable = r.tagName=='HTML' || r.type=='textarea' || r.type=='text' || r.type=='search' || r.contentEditable;
+	console.debug('Target type: ' + r.type);
 
 	return r;
 };
@@ -602,10 +608,15 @@ CHIM.GetTarget = function(e) {
 // Function: CHIM.GetCursorPosition
 //----------------------------------------------------------------------------
 CHIM.GetCursorPosition = function( target ) {
-	if (target == null || target.value == null || target.value.length == 0) {
+	console.log("Target content: " + target.textContent);
+	if (target == null || (target.value == undefined && target.textContent == undefined)) {
+		return -1;
+	}
+	if (target.value != undefined && target.value.length == 0) {
 		return -1;
 	}
 	// Moz/Opera
+	console.log("selectionStart: " + target.selectionStart);
 	if (typeof(target.selectionStart) != 'undefined') {
 		if (target.selectionStart < 0 || target.selectionStart > target.length ||
 			target.selectionEnd < 0 || target.selectionEnd > target.length ||
@@ -647,6 +658,20 @@ CHIM.GetCursorPosition = function( target ) {
 		}
 		return textRange.text.indexOf(selection.text);
 	}
+	
+	if (window.getSelection) {
+		
+		var sel = window.getSelection();
+		console.log('rangeCount: ' + sel.rangeCount);
+		if (sel.rangeCount) {
+            range = sel.getRangeAt(0);
+            if (range.commonAncestorContainer.parentNode == target) {
+                return range.endOffset;
+            }
+        }
+	}
+	console.debug("-2.4");
+	return -1;
 };
 //----------------------------------------------------------------------------
 // Function: CHIM.SetCursorPosition
@@ -674,6 +699,13 @@ CHIM.SetCursorPosition = function(target, p) {
 		range.moveStart('character', p);
 		range.moveEnd('character', 0);
 		range.select();
+	} else if (target.contentEditable) {
+		var range = document.createRange();
+		range.setStart(target.firstChild, p);
+		range.setEnd(target.firstChild, p);
+		var sel = window.getSelection();
+		sel.removeAllRanges();
+		sel.addRange(range);
 	}
 };
 /**
@@ -687,8 +719,12 @@ CHIM.UpdateBuffer = function(target) {
 		var separators = CHIM.separators;
 		var c = CHIM.GetCursorPosition( target ) - 1;
 		if ( c > 0 ) {
-			while ( c >= 0 && separators.indexOf(target.value.charAt(c)) < 0 ) {
-				CHIM.buffer.unshift(target.value.charAt(c));
+			var value = target.value;
+			if (!value) {
+				value = target.textContent;
+			}
+			while ( c >= 0 && separators.indexOf(value.charAt(c)) < 0 ) {
+				CHIM.buffer.unshift(value.charAt(c));
 				c = c - 1;
 			}
 		}
@@ -893,6 +929,7 @@ CHIM.KeyHandler = function(e) {
 				Mudim.startWordOffset=CHIM.GetCursorPosition(target);
 				Mudim.newTempDisableSpellCheckRequest = false;
 			}
+			console.debug('|%s| (KeyHandler)',CHIM.buffer);
 			if (CHIM.AddKey(key) ) {
 				if (e.stopPropagation) {e.stopPropagation();}
 				if (e.preventDefault) {e.preventDefault();}
@@ -1167,8 +1204,15 @@ Mudim.UpdateUI = function(target,l) {
 	var start = Mudim.startWordOffset < 0 ? 0 : Mudim.startWordOffset;
 	var end = CHIM.GetCursorPosition(target);
 	var t = target.scrollTop;
-	target.value = target.value.substring( 0, start ) +
-		b.toString().replace(/,/g,'') + target.value.substring( end );
+	if (target.value != undefined) {
+		target.value = target.value.substring( 0, start ) +	
+						b.toString().replace(/,/g,'') + 
+						target.value.substring( end );
+	} else {
+		target.textContent = target.textContent.substring( 0, start ) +	
+						b.toString().replace(/,/g,'') + 
+						target.textContent.substring( end );
+	}
 	CHIM.SetCursorPosition( target, start + b.length);
 	target.scrollTop = t;
 };
