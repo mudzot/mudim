@@ -416,7 +416,7 @@ CHIM.ClearBuffer = function() {
 var methodNames=['off','vni','telex','viqr','mixed','auto'];
 var SKIN=['simple','solid','light'];
 CHIM.SetDisplay = function() {
-	document.getElementById("menubutton").setAttribute("src","chrome://mudim/skin/"+SKIN[Mudim.skinIdx]+"/"+methodNames[Mudim.method]+".png");
+	document.getElementById("mudim-button").style.listStyleImage = "url('chrome://mudim/skin/"+SKIN[Mudim.skinIdx]+"/"+methodNames[Mudim.method]+".png')";
 };
 //----------------------------------------------------------------------------
 // Function: CHIM.SwitchMethod
@@ -879,6 +879,17 @@ CHIM.Attach = function(e) {
 // Function: CHIM.Activate
 //----------------------------------------------------------------------------
 CHIM.Activate = function() {
+	var firstRun = false;
+	try {
+		firstRun = Mudim.settings.getBoolPref("mudim.settings.firstRun");
+	} catch(e) {
+	}
+	if (!firstRun) {
+		installButton("nav-bar", "mudim-button");
+		// The "addon-bar" is available since Firefox 4
+		installButton("addon-bar", "mudim-button");
+		Mudim.settings.setBoolPref("mudim.settings.firstRun", true);
+	}
 	CHIM.Attach(document);
 	CHIM.SetDisplay();
 };
@@ -1300,10 +1311,43 @@ Mudim.GetPreference = function() {
 	Mudim.skinIdx=Mudim.settings.getIntPref("mudim.settings.skinIdx");
 	Mudim.typeInUrlBar=Mudim.settings.getBoolPref("mudim.settings.typeInUrlBar");
 };
-Mudim.settings = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch("chim");
+Mudim.settings = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch("mudimffx");
 try {
 	Mudim.GetPreference();
 } catch(e) {
 	Mudim.SetPreference();
 }
 window.addEventListener("load", CHIM.Activate, false);
+
+/**
+ * Taken from https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Toolbar#Adding_button_by_default
+ */
+
+/**
+ * Installs the toolbar button with the given ID into the given
+ * toolbar, if it is not already present in the document.
+ *
+ * @param {string} toolbarId The ID of the toolbar to install to.
+ * @param {string} id The ID of the button to install.
+ * @param {string} afterId The ID of the element to insert after. @optional
+ */
+function installButton(toolbarId, id, afterId) {
+    //if (!document.getElementById(id)) {
+        var toolbar = document.getElementById(toolbarId);
+
+        // If no afterId is given, then append the item to the toolbar
+        var before = null;
+        if (afterId) {
+            let elem = document.getElementById(afterId);
+            if (elem && elem.parentNode == toolbar)
+                before = elem.nextElementSibling;
+        }
+
+        toolbar.insertItem(id, before);
+        toolbar.setAttribute("currentset", toolbar.currentSet);
+        document.persist(toolbar.id, "currentset");
+
+        if (toolbarId == "addon-bar")
+            toolbar.collapsed = false;
+    //}
+}

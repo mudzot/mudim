@@ -4,14 +4,14 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>mudim@svol.ru</em:id>
 		<em:name>Mudim</em:name>
-		<em:version>0.8.159</em:version>
+		<em:version>0.9</em:version>
 		<em:description>Vietnamese input method</em:description>
 		<em:creator>Mudzot</em:creator>
 		<em:contributor>MrChuoi</em:contributor>
 		<em:contributor>Vnpenguin</em:contributor>
-		<em:homepageURL>http://mudim.googlecode.com</em:homepageURL>
+		<em:homepageURL>https://github.com/mudzot/mudim</em:homepageURL>
 		<em:file>
-			<Description about="urn:mozilla:extension:file:chim.jar">
+			<Description about="urn:mozilla:extension:file:mudim.jar">
 			<em:package>content/</em:package>
 			<em:package>skin/</em:package>
 			</Description>
@@ -20,8 +20,9 @@
 			<Description>
 			<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 			<em:minVersion>1.0</em:minVersion>
-			<em:maxVersion>4.0b8pre</em:maxVersion>
-			</Description>
+			<em:maxVersion>40.0</em:maxVersion>
+		</Description>
 		</em:targetApplication>
 	</Description>
 </RDF>
+
