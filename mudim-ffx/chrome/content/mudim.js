@@ -481,7 +481,7 @@ CHIM.GetTarget = function(e) {
 	if (r.tagName == "findbar") {
 		r = document.getAnonymousElementByAttribute(r,"anonid","findbar-textbox");
 	}
-	CHIM.peckable = r.tagName=='HTML' || r.type=='textarea' || r.type=='text' || r.tagName.indexOf('textbox')>-1;
+	CHIM.peckable = r.tagName=='HTML' || r.type=='textarea' || r.type=='text' || r.type=='search' || r.tagName.indexOf('textbox')>-1;
 	if (r.id == "urlbar") {
 		if (!Mudim.typeInUrlBar) {
 			CHIM.peckable = false;
