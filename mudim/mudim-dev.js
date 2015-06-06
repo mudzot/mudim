@@ -609,10 +609,13 @@ CHIM.GetTarget = function(e) {
 //----------------------------------------------------------------------------
 CHIM.GetCursorPosition = function( target ) {
 	console.log("Target content: " + target.textContent);
-	if (target == null || (target.value == undefined && target.textContent == undefined)) {
+	if (!target || (target.value == undefined && target.textContent == undefined)) {
 		return -1;
 	}
-	if (target.value != undefined && target.value.length == 0) {
+	if (target.value && target.value.length == 0) {
+		return -1;
+	}
+	if (target.textContent && target.textContent.length == 0) {
 		return -1;
 	}
 	// Moz/Opera
@@ -882,10 +885,6 @@ CHIM.Freeze = function(target) {
 		for ( var i = 0; i < ign.length; i++ ) {
 			if( target.id == ign[i] ) {return true;}
 		}
-	}
-	//broken on facebook comment fields; disable until resolved
-	if (target.getAttribute('data-reactid')) {
-		return true;
 	}
 	return false;
 };
@@ -1239,11 +1238,11 @@ Mudim.UpdateUI = function(target,l) {
 						b.toString().replace(/,/g,'') + 
 						target.value.substring( end );
 	} else {
-		//content editable div
+		//html5 contentEditable
 		var textNode = Mudim.GetChildTextNode(target);
-		textNode.textContent = textNode.textContent.substring( 0, start ) +	
-							b.toString().replace(/,/g,'') + 
- 							textNode.textContent.substring( end );
+		var str = textNode.textContent;
+		textNode.textContent = ''; //thank to information from avim issue #105 with facebook comment fields
+		textNode.textContent = str.substring( 0, start ) + b.toString().replace(/,/g,'') + str.substring( end );
 	}
 	CHIM.SetCursorPosition( target, start + b.length);
 	target.scrollTop = t;

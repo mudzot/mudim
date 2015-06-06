@@ -498,7 +498,10 @@ CHIM.GetCursorPosition = function( target ) {
 	if (target == null || (target.value == undefined && target.textContent == undefined)) {
 		return -1;
 	}
-	if (target.value != undefined && target.value.length == 0) {
+	if (target.value && target.value.length == 0) {
+		return -1;
+	}
+	if (target.textContent && target.textContent.length == 0) {
 		return -1;
 	}
 	// Moz/Opera
@@ -721,10 +724,6 @@ CHIM.Freeze = function(target) {
 			if( target.id == NOOP[i] ) return true;
 		}
 	}
-	//broken on facebook comment fields; disable until resolved
-	if (target.getAttribute('data-reactid')) {
-		return true;
-	}
 	return false;
 }
 //----------------------------------------------------------------------------
@@ -863,11 +862,10 @@ CHIM.MouseDown = function(e) {
 CHIM.Attach = function(e) {
 	if (!e) {return;}
 	if (!e.chim) {
-		var capture = true;
-		e.addEventListener("keypress",CHIM.KeyHandler,false);
-		e.addEventListener("keydown",CHIM.KeyDown,capture);
-		e.addEventListener("keyup",CHIM.KeyUp,capture);
-		e.addEventListener("mousedown",CHIM.MouseDown,capture);
+		e.addEventListener("keypress",CHIM.KeyHandler, true);
+		e.addEventListener("keydown",CHIM.KeyDown, true);
+		e.addEventListener("keyup",CHIM.KeyUp, true);
+		e.addEventListener("mousedown",CHIM.MouseDown, true);
 	}
 	e.chim = true;
 	
@@ -1125,11 +1123,11 @@ Mudim.UpdateUI = function(target,l) {
 						b.toString().replace(/,/g,'') + 
 						target.value.substring( end );
 	} else {
-		//content editable div
+		//html5 contentEditable
 		var textNode = Mudim.GetChildTextNode(target);
-		textNode.textContent = textNode.textContent.substring( 0, start ) +	
-							b.toString().replace(/,/g,'') + 
- 							textNode.textContent.substring( end );
+		var str = textNode.textContent;
+		textNode.textContent = ''; //thank to information from avim issue #105 with facebook comment fields
+		textNode.textContent = str.substring( 0, start ) + b.toString().replace(/,/g,'') + str.substring( end );
 	}
 	CHIM.SetCursorPosition( target, start + b.length);
 	target.scrollTop = t;
