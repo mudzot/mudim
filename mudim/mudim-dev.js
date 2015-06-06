@@ -658,19 +658,14 @@ CHIM.GetCursorPosition = function( target ) {
 		}
 		return textRange.text.indexOf(selection.text);
 	}
-	
-	if (window.getSelection) {
-		
-		var sel = window.getSelection();
-		console.log('rangeCount: ' + sel.rangeCount);
+	var sel;
+	if (sel = Mudim.GetTargetSelection(target)) {
 		if (sel.rangeCount) {
-            range = sel.getRangeAt(0);
-            if (range.commonAncestorContainer.parentNode == target) {
-                return range.endOffset;
-            }
+            return sel.getRangeAt(0).endOffset;
         }
 	}
-	console.debug("-2.4");
+	
+	console.debug('UnknownCursorPosition');
 	return -1;
 };
 //----------------------------------------------------------------------------
@@ -700,10 +695,12 @@ CHIM.SetCursorPosition = function(target, p) {
 		range.moveEnd('character', 0);
 		range.select();
 	} else if (target.contentEditable) {
-		var range = document.createRange();
-		range.setStart(target.firstChild, p);
-		range.setEnd(target.firstChild, p);
-		var sel = window.getSelection();
+		var textNode = Mudim.GetChildTextNode(target);
+		var range = Mudim.GetTargetDocument(target).createRange();
+		range.setStart(textNode, p);
+		range.setEnd(textNode, p);
+		
+		var sel = Mudim.GetTargetSelection(target);
 		sel.removeAllRanges();
 		sel.addRange(range);
 	}
@@ -885,6 +882,10 @@ CHIM.Freeze = function(target) {
 		for ( var i = 0; i < ign.length; i++ ) {
 			if( target.id == ign[i] ) {return true;}
 		}
+	}
+	//broken on facebook comment fields; disable until resolved
+	if (target.getAttribute('data-reactid')) {
+		return true;
 	}
 	return false;
 };
@@ -1187,6 +1188,33 @@ CHIM.VN=[
 	7917,7916,7919,7918,7921,7920,105,73,237,205,236,204,7881,7880,297,296,
 	7883,7882,273,272,0
 ];
+
+// DOM helper functions
+
+Mudim.GetTargetDocument = function(target) {
+	return target.ownerDocument || document;
+};
+
+Mudim.GetTargetWindow = function(target) {
+	var doc = Mudim.GetTargetDocument(target);
+	return doc.defaultView || doc.parentWindow || window;
+}
+
+Mudim.GetTargetSelection = function(target) {
+	var wnd = Mudim.GetTargetWindow(target);
+	if (wnd.getSelection) {
+		return wnd.getSelection();
+	}
+	console.debug('GetTargetSelection not supported');
+};
+
+Mudim.GetChildTextNode = function(target) {
+	var sel = Mudim.GetTargetSelection(target);
+	if (sel.rangeCount) {
+		return sel.getRangeAt(0).commonAncestorContainer;
+	}
+};
+
 //---------------------------------------------------------------------------
 // Function: UpdateUI
 //	Synchronize text content with internal buffer after adding key
@@ -1195,6 +1223,7 @@ CHIM.VN=[
 //	l : buffer length BEFORE adding key
 //---------------------------------------------------------------------------
 Mudim.UpdateUI = function(target,l) {
+	console.debug('UpdateUI');
 	var b=CHIM.buffer;
 	if (target.tagName == 'HTML') {
 		CHIM.HTMLEditor.Process(target, l);
@@ -1203,19 +1232,23 @@ Mudim.UpdateUI = function(target,l) {
 	}
 	var start = Mudim.startWordOffset < 0 ? 0 : Mudim.startWordOffset;
 	var end = CHIM.GetCursorPosition(target);
+	console.debug('start ' + start + ' end ' + end);
 	var t = target.scrollTop;
 	if (target.value != undefined) {
 		target.value = target.value.substring( 0, start ) +	
 						b.toString().replace(/,/g,'') + 
 						target.value.substring( end );
 	} else {
-		target.textContent = target.textContent.substring( 0, start ) +	
-						b.toString().replace(/,/g,'') + 
-						target.textContent.substring( end );
+		//content editable div
+		var textNode = Mudim.GetChildTextNode(target);
+		textNode.textContent = textNode.textContent.substring( 0, start ) +	
+							b.toString().replace(/,/g,'') + 
+ 							textNode.textContent.substring( end );
 	}
 	CHIM.SetCursorPosition( target, start + b.length);
 	target.scrollTop = t;
 };
+
 //---------------------------------------------------------------------------
 // Function FindAccentPos
 //	Find position to put accent based on current internal buffer content, provided with the most possible next key

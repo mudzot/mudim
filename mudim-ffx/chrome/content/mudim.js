@@ -511,15 +511,13 @@ CHIM.GetCursorPosition = function( target ) {
 		return target.selectionStart;
 	}
 	
-	if (content.getSelection) {
-		var sel = content.getSelection();
+	var sel;
+	if (sel = Mudim.GetTargetSelection(target)) {
 		if (sel.rangeCount) {
-			range = sel.getRangeAt(0);
-			if (range.commonAncestorContainer.parentNode == target) {
-				return range.endOffset;
-			}
-		}
+            return sel.getRangeAt(0).endOffset;
+        }
 	}
+	
 	return -1;	
 };
 //----------------------------------------------------------------------------
@@ -536,13 +534,15 @@ CHIM.SetCursorPosition = function(target, p) {
 		range.moveStart('character', p);
 		range.select();
 	} else if (target.contentEditable) {
-		var range = document.createRange();
-		range.setStart(target.firstChild, p);
-		range.setEnd(target.firstChild, p);
-		var sel = content.getSelection();
+		var textNode = Mudim.GetChildTextNode(target);
+		var range = Mudim.GetTargetDocument(target).createRange();
+		range.setStart(textNode, p);
+		range.setEnd(textNode, p);
+		
+		var sel = Mudim.GetTargetSelection(target);
 		sel.removeAllRanges();
 		sel.addRange(range);
-	}
+ 	}
 };
 //----------------------------------------------------------------------------
 // Function: CHIM.UpdateBuffer
@@ -721,13 +721,17 @@ CHIM.Freeze = function(target) {
 			if( target.id == NOOP[i] ) return true;
 		}
 	}
+	//broken on facebook comment fields; disable until resolved
+	if (target.getAttribute('data-reactid')) {
+		return true;
+	}
 	return false;
 }
 //----------------------------------------------------------------------------
 // Function: CHIM.KeyHandler
 //	Handle key press event
 //----------------------------------------------------------------------------
-CHIM.KeyHandler = function(e) {
+CHIM.KeyHandler = function(e) {	
 	if ( e == null ) {e = window.event;}
 	if (e.isHandled==true) {return;}
 	e.isHandled=true;
@@ -738,6 +742,7 @@ CHIM.KeyHandler = function(e) {
 	if ( keyCode == 0 ) {	// unlikely to get here
 		keyCode = e.which;
 	}
+	
 	if ( CHIM.IsHotkey(e, keyCode) ) {
 		return;
 	}
@@ -751,7 +756,6 @@ CHIM.KeyHandler = function(e) {
 		}
 		return;
 	}
-
 	if ( e.charCode == null || e.charCode != 0 ) { // process ASCII only
 		var key = String.fromCharCode(keyCode);
 		if ( keyCode == CHIM.VK_SPACE || keyCode == CHIM.VK_ENTER ) {
@@ -774,6 +778,7 @@ CHIM.KeyHandler = function(e) {
 				if (e.preventDefault) {e.preventDefault();}
 				e.cancelBubble = true;
 				e.returnValue = false;
+				
 				Mudim.UpdateUI(target,l);
 			}
 		}
@@ -854,28 +859,19 @@ CHIM.MouseDown = function(e) {
 //
 // Parameters:
 //	e - element to attach
-//	r - boolean value indicates that CHIM functions will replace the
-//		default handlers
 //----------------------------------------------------------------------------
 CHIM.Attach = function(e) {
 	if (!e) {return;}
 	if (!e.chim) {
-		try {
-			if (e.designMode=="on" || e.designMode=="off") {		//iframe
-				e.addEventListener("keypress",CHIM.KeyHandler,true);
-				e.addEventListener("keydown",CHIM.KeyDown,true);
-				e.addEventListener("keyup",CHIM.KeyUp,true);
-				e.addEventListener("mousedown",CHIM.MouseDown,true);
-			} else {			//root document
-				e.onkeypress=CHIM.KeyHandler;
-				e.onkeydown=CHIM.KeyDown;
-				e.onkeyup=CHIM.KeyUp;
-				e.onmousedown=CHIM.MouseDown;
-			}
-		} catch(ex) {}
+		var capture = true;
+		e.addEventListener("keypress",CHIM.KeyHandler,false);
+		e.addEventListener("keydown",CHIM.KeyDown,capture);
+		e.addEventListener("keyup",CHIM.KeyUp,capture);
+		e.addEventListener("mousedown",CHIM.MouseDown,capture);
 	}
 	e.chim = true;
-	var f
+	
+	var f;
 	if (e.getElementById("content")!=null) {
 		f=e.getElementById("content").selectedBrowser.contentDocument.getElementsByTagName("iframe");
 	} else {
@@ -1082,6 +1078,31 @@ Mudim.UpdateMenuSkin = function(m) {
 	for (var i=0;i<items.length;i++) items[i].setAttribute("checked",Mudim.skinIdx==i);
 };
 
+// DOM helper functions
+
+Mudim.GetTargetDocument = function(target) {
+	return target.ownerDocument || document;
+};
+
+Mudim.GetTargetWindow = function(target) {
+	var doc = Mudim.GetTargetDocument(target);
+	return doc.defaultView || doc.parentWindow || window;
+}
+
+Mudim.GetTargetSelection = function(target) {
+	var wnd = Mudim.GetTargetWindow(target);
+	if (wnd.getSelection) {
+		return wnd.getSelection();
+	}
+};
+
+Mudim.GetChildTextNode = function(target) {
+	var sel = Mudim.GetTargetSelection(target);
+	if (sel.rangeCount) {
+		return sel.getRangeAt(0).commonAncestorContainer;
+	}
+};
+
 //---------------------------------------------------------------------------
 // Function: UpdateUI
 //	Synchronize text content with internal buffer after adding key
@@ -1101,16 +1122,19 @@ Mudim.UpdateUI = function(target,l) {
 	var t = target.scrollTop;
 	if (target.value != undefined) {
 		target.value = target.value.substring( 0, start ) +	
-			b.toString().replace(/,/g,'') + 
-			target.value.substring( end );
+						b.toString().replace(/,/g,'') + 
+						target.value.substring( end );
 	} else {
-		target.textContent = target.textContent.substring( 0, start ) +	
+		//content editable div
+		var textNode = Mudim.GetChildTextNode(target);
+		textNode.textContent = textNode.textContent.substring( 0, start ) +	
 							b.toString().replace(/,/g,'') + 
-							target.textContent.substring( end );
+ 							textNode.textContent.substring( end );
 	}
 	CHIM.SetCursorPosition( target, start + b.length);
 	target.scrollTop = t;
 };
+
 //---------------------------------------------------------------------------
 // Function FindAccentPos
 //	Find position to put accent based on current internal buffer content, provided with the most possible next key
