@@ -469,6 +469,19 @@ CHIM.GetTarget = function(e) {
 		return null;
 	}
 	var r = e.target;
+	
+	var doc = window.top.document;
+	if (typeof(doc.mudimGDocsEditor) == "undefined") {
+		if (doc.getElementById("docs-editor")) {
+			doc.mudimGDocsEditor = doc.getElementById("docs-editor");
+		} else {
+			doc.mudimGDocsEditor = null;
+		}
+	}
+	if (doc.mudimGDocsEditor) {
+		//Ignore google docs window
+		return null;
+	}
 	while ( r && (r.nodeType != 1) ) // climb up from text nodes on Moz
 		r = r.parentNode;
 	if (r.tagName == 'BODY') {
@@ -482,7 +495,7 @@ CHIM.GetTarget = function(e) {
 		r = document.getAnonymousElementByAttribute(r,"anonid","findbar-textbox");
 	}
 	CHIM.peckable = r.tagName=='HTML' || r.type=='textarea' || r.type=='text' || r.type=='search' 
-					 || r.contentEditable || (r.tagName && r.tagName.indexOf('textbox')>-1);
+					 || r.tagName=='DIV' || (r.tagName && r.tagName.indexOf('textbox')>-1);
 	if (r.id == "urlbar") {
 		if (!Mudim.typeInUrlBar) {
 			CHIM.peckable = false;
@@ -536,7 +549,7 @@ CHIM.SetCursorPosition = function(target, p) {
 		range.moveEnd('character', p);
 		range.moveStart('character', p);
 		range.select();
-	} else if (target.contentEditable) {
+	} else {
 		var textNode = Mudim.GetChildTextNode(target);
 		var range = Mudim.GetTargetDocument(target).createRange();
 		range.setStart(textNode, p);
@@ -861,38 +874,46 @@ CHIM.MouseDown = function(e) {
 //----------------------------------------------------------------------------
 CHIM.Attach = function(e) {
 	if (!e) {return;}
-	if (!e.chim) {
-		e.addEventListener("keypress",CHIM.KeyHandler, true);
-		e.addEventListener("keydown",CHIM.KeyDown, true);
-		e.addEventListener("keyup",CHIM.KeyUp, true);
-		e.addEventListener("mousedown",CHIM.MouseDown, true);
-	}
-	e.chim = true;
+
+	var doc = e;
 	
-	var f;
-	if (e.getElementById("content")!=null) {
-		f=e.getElementById("content").selectedBrowser.contentDocument.getElementsByTagName("iframe");
-	} else {
-		f=e.getElementsByTagName("iframe");
-	} 
+	var testContent = doc.getElementById('content');
+	if (testContent && testContent.selectedBrowser && testContent.selectedBrowser.contentDocument) {
+		doc = testContent.selectedBrowser.contentDocument;
+	}
+	
+	if (doc.chim) {
+		return; 
+	}
+	doc.chim = true;
+
+	if (!doc.mudimDocsEditor && doc.getElementById("docs-editor")) {
+		doc.mudimDocsEditor = doc.getElementById("docs-editor");
+		return;
+	}
+	
+	doc.addEventListener("keypress",CHIM.KeyHandler, true);
+	doc.addEventListener("keydown",CHIM.KeyDown, true);
+	doc.addEventListener("keyup",CHIM.KeyUp, true);
+	doc.addEventListener("mousedown",CHIM.MouseDown, true);
+	
+	var f = doc.getElementsByTagName("iframe");
+	
 	for (var i = 0; i < f.length; i++) {
-		var doc = f[i].contentDocument;
+		var framedoc = f[i].contentDocument;
 		try {
-			doc.iframe = f[i];
-			CHIM.Attach(doc);
+			framedoc.iframe = f[i];
+			CHIM.Attach(framedoc);
 		} catch(e) {}
 	}
-
-	if (e.getElementById("content")!=null) {
-		f=e.getElementById("content").selectedBrowser.contentDocument.getElementsByTagName("frame");
-	} else {
-		f=e.getElementsByTagName("frame");
-	}
+	
+	f = doc.getElementsByTagName("frame");
+	
 	for (var i = 0; i < f.length; i++) {
-		var doc = f[i].contentDocument;
+		var framedoc = f[i].contentDocument;
 		try {
-			doc.iframe = f[i];
-			CHIM.Attach(doc);
+			framedoc.iframe = f[i];
+			CHIM.Attach(framedoc);
 		} catch(e) {}
 	}
 };

@@ -589,8 +589,8 @@ CHIM.GetTarget = function(e) {
 		r = e.srcElement;
 	} else {
 		r = e.target;
-		console.debug(r);
-		console.debug(r.nodeType);
+		
+		console.debug('EventTarget: ' + r + ' type ' + r.type + ' nodeType ' + r.nodeType + ' tagName ' + r.tagName + ' id ' + r.id);
 		while ( r && (r.nodeType != 1) ) { // climb up from text nodes on Moz
 			console.debug(r.nodeType);
 			r = r.parentNode;
@@ -599,7 +599,7 @@ CHIM.GetTarget = function(e) {
 	if (r.tagName == 'BODY') {
 		r = r.parentNode;
 	}
-	CHIM.peckable = r.tagName=='HTML' || r.type=='textarea' || r.type=='text' || r.type=='search' || r.contentEditable;
+	CHIM.peckable = r.tagName=='HTML' || r.type=='textarea' || r.type=='text' || r.type=='search' || r.tagName == 'DIV';
 	console.debug('Target type: ' + r.type);
 
 	return r;
@@ -697,7 +697,7 @@ CHIM.SetCursorPosition = function(target, p) {
 		range.moveStart('character', p);
 		range.moveEnd('character', 0);
 		range.select();
-	} else if (target.contentEditable) {
+	} else {
 		var textNode = Mudim.GetChildTextNode(target);
 		var range = Mudim.GetTargetDocument(target).createRange();
 		range.setStart(textNode, p);
